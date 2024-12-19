@@ -6,13 +6,8 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:04:58 by igilbert          #+#    #+#             */
-/*   Updated: 2024/12/19 17:09:00 by igilbert         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:24:27 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	main(void)
-{
-	ft_printf("Hello, World!\n");
-}

@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:41:10 by igilbert          #+#    #+#             */
-/*   Updated: 2024/12/19 17:09:15 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:24:50 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_tab
 {
 	int				data;
 	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
+	struct s_tab	*next;
+	struct s_tab	*prev;
 }	t_tab;
 
 #endif

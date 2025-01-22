@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:17 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/22 13:07:20 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:10:27 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,31 +190,23 @@ int	*intify(char **split, int *size)
 	return (int_array);
 }
 
-int	*positify(int *int_array)
+int	*positify(int *int_array, int size)
 {
 	int	*pos_array;
 	int	i;
 	int	j;
-	int	size;
 
-	size = 0;
-	i = 0;
-	while (int_array[size])
-		size++;
 	pos_array = malloc(sizeof(int) * size);
 	if (!pos_array)
 		return (NULL);
 	fill_with_zero(pos_array, size);
-	while (i < size)
+	for (i = 0; i < size; i++)
 	{
-		j = 0;
-		while (j < size)
+		for (j = 0; j < size; j++)
 		{
 			if (int_array[i] > int_array[j])
 				pos_array[i]++;
-			j++;
 		}
-		i++;
 	}
 	return (pos_array);
 }
@@ -253,7 +245,9 @@ t_list	**process_input(char *input)
 	t_list	**list;
 
 	int_array = intify(ft_split(input, ' '), &size);
-	pos_array = positify(int_array);
+	if (!int_array)
+		return (NULL);
+	pos_array = positify(int_array, size);
 	free(int_array);
 	if (!pos_array)
 		return (NULL);

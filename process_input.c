@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:17 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/22 13:10:27 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:22:07 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-/* ************************************************************************** */
+/* **************************************************************************/
 char	*ft_strndup(const char *s1, int len)
 {
 	char	*dup;
@@ -140,7 +140,6 @@ t_list	*ft_lstlast(t_list *lst)
 
 	if (!lst)
 		return (NULL);
-	ret = malloc(sizeof(t_list) + 1);
 	ret = lst;
 	while (ret->next != NULL)
 		ret = ret->next;
@@ -156,7 +155,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
-/* ************************************************************************** */
+ /************************************************************************** */
 
 void	fill_with_zero(int *array, int size)
 {
@@ -196,17 +195,21 @@ int	*positify(int *int_array, int size)
 	int	i;
 	int	j;
 
+	i = 0;
 	pos_array = malloc(sizeof(int) * size);
 	if (!pos_array)
 		return (NULL);
 	fill_with_zero(pos_array, size);
-	for (i = 0; i < size; i++)
+	while (i < size)
 	{
-		for (j = 0; j < size; j++)
+		j = 0;
+		while (j < size)
 		{
 			if (int_array[i] > int_array[j])
 				pos_array[i]++;
+			j++;
 		}
+		i++;
 	}
 	return (pos_array);
 }
@@ -258,7 +261,7 @@ t_list	**process_input(char *input)
 
 int	main(void)
 {
-	char *input = "3 1 2 78 43 -6";
+	char *input = "3 1 2 78 43 -688";
 	t_list **list = process_input(input);
 	t_list *current;
 

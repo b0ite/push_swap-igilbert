@@ -1,21 +1,14 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = libft
+LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
-FT_PRINTF_DIR = libft/ft_printf
-FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 SRCS = 	push_swap.c \
-		#ft_sa.c \
-		#ft_sb.c \
-		#ft_ss.c \
-		#ft_pa.c \
-		#ft_pb.c \
-		#ft_ra.c \
-		#ft_rb.c \
-		#ft_rr.c \
-		#ft_rra.c \
-		#ft_rrb.c \
-		#ft_rrr.c
+		process_input.c \
+		tools_1.c \
+		ft_sab.c \
+		ft_pab.c \
+		ft_rab.c \
+		ft_rrab.c
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
 

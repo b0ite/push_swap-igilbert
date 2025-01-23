@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:17 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/22 13:22:07 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/23 13:32:14 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,15 +219,16 @@ t_list	**listify(int *int_array, int size)
 	t_list	**list;
 	t_list	*new_node;
 	int		i;
+	int		*value;
 
-	list = malloc(sizeof(t_list *));
+	*list = malloc(sizeof(t_list *));
 	if (!list)
 		return (NULL);
 	*list = NULL;
 	i = 0;
 	while (i < size)
 	{
-		int *value = malloc(sizeof(int));
+		value = malloc(sizeof(int));
 		if (!value)
 			return (errlist(list, free));
 		*value = int_array[i];
@@ -277,6 +278,5 @@ int	main(void)
 		current = current->next;
 	}
 	ft_lstclear(list, free);
-	free(list);
 	return (0);
 }

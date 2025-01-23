@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:28:17 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/23 13:32:14 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:38:12 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-/* **************************************************************************/
+/* **************************************************************************
 char	*ft_strndup(const char *s1, int len)
 {
 	char	*dup;
@@ -155,7 +155,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	else
 		*lst = new;
 }
- /************************************************************************** */
+ ************************************************************************** */
 
 void	fill_with_zero(int *array, int size)
 {
@@ -221,7 +221,7 @@ t_list	**listify(int *int_array, int size)
 	int		i;
 	int		*value;
 
-	*list = malloc(sizeof(t_list *));
+	list = malloc(sizeof(t_list *));
 	if (!list)
 		return (NULL);
 	*list = NULL;
@@ -260,6 +260,7 @@ t_list	**process_input(char *input)
 	return (list);
 }
 
+/*
 int	main(void)
 {
 	char *input = "3 1 2 78 43 -688";
@@ -280,3 +281,4 @@ int	main(void)
 	ft_lstclear(list, free);
 	return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 17:04:58 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/23 13:46:53 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:25:06 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ void	push_swap(t_list **list_a)
 	{
 		while (j < ft_lstsize(*list_a))
 		{
-			if ((num >> i)&1 == 1)
+			if (((*((int *)(*list_a)->content) >> i) & 1 == 1))
+				ft_ra(list_a);
+			else
+				ft_pb(list_a, *list_a);
 		}
 	}
+	
 }
 int	main(void)
 {

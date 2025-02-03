@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:01:44 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/03 11:15:42 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:06:35 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,29 +53,6 @@ void	index_tab(t_tab *a)
 	}
 }
 
-t_tab	*check_double(t_tab *a)
-{
-	t_tab	*current;
-	t_tab	*compare;
-
-	current = a;
-	while (current)
-	{
-		compare = current->next;
-		while (compare)
-		{
-			if (current->value == compare->value)
-			{
-				ft_printf("Error\n");
-				return (NULL);
-			}
-			compare = compare->next;
-		}
-		current = current->next;
-	}
-	return (a);
-}
-
 t_tab	*fill_a(char **av)
 {
 	t_tab	*a;
@@ -87,12 +64,19 @@ t_tab	*fill_a(char **av)
 	split = ft_split(av[1], ' ');
 	while (split[i])
 	{
+		if (!ft_atoi(split[i]))
+		{
+			ft_printf("Error : %s not an integer\n", split[i]);
+			free_split(split);
+			return (NULL);
+		}
 		a = add_back(a, ft_atoi(split[i]));
 		i++;
 	}
 	index_tab(a);
-	if (!check_double(a))
-		return (NULL);
+	free_split(split);
+	if (!full_check(a))
+		return (free_tab(a));
 	return (a);
 }
 
@@ -104,6 +88,7 @@ int	main(int ac, char **av)
 	{
 		a = fill_a(av);
 		print_tab(a);
+		free_tab(a);
 	}
 	return (0);
 }

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 19:58:00 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/03 11:52:34 by igilbert         ###   ########.fr       */
+/*   Created: 2025/02/03 11:45:18 by igilbert          #+#    #+#             */
+/*   Updated: 2025/02/03 11:51:31 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./libft/libft.h"
-
-typedef struct s_tab
+t_tab	*free_tab(t_tab *a)
 {
-	int				value;
-	int				index;
-	struct s_tab	*next;
-}	t_tab;
+	t_tab	*current;
+	t_tab	*next;
 
-void	print_tab(t_tab *a);
-int		full_check(t_tab *a);
-void	free_split(char **split);
-t_tab	*free_tab(t_tab *a);
-
-#endif
+	current = a;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	return (NULL);
+}

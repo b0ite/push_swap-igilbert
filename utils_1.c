@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools_1.c                                          :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 16:26:05 by igilbert          #+#    #+#             */
-/*   Updated: 2025/01/22 13:07:16 by igilbert         ###   ########.fr       */
+/*   Created: 2025/02/03 11:14:12 by igilbert          #+#    #+#             */
+/*   Updated: 2025/02/03 11:14:58 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_free_split(char **split)
+void	print_tab(t_tab *a)
 {
-	int	i;
+	t_tab	*current;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
+	current = a;
+	while (current)
 	{
-		free(split[i]);
-		i++;
+		ft_printf("value: %d, index: %d\n", current->value, current->index);
+		current = current->next;
 	}
-	free(split);
-}
-
-t_list	**errlist(t_list **lst, void (*del)(void *))
-{
-	if (lst)
-	{
-		ft_lstclear(lst, del);
-		free(lst);
-	}
-	return (NULL);
 }

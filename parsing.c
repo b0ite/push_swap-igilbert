@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:01:44 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/03 12:06:35 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/04 12:13:56 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,4 @@ t_tab	*fill_a(char **av)
 	if (!full_check(a))
 		return (free_tab(a));
 	return (a);
-}
-
-int	main(int ac, char **av)
-{
-	t_tab	*a;
-
-	if (ac == 2)
-	{
-		a = fill_a(av);
-		print_tab(a);
-		free_tab(a);
-	}
-	return (0);
 }

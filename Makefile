@@ -7,6 +7,7 @@ SRCS = 	parsing.c \
 		utils_1.c \
 		utils_2.c \
 		inst_1.c \
+		inst_2.c \
 		algo.c
 
 OBJS = $(SRCS:.c=.o)

@@ -6,11 +6,11 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:45:18 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/04 12:01:55 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:04:00 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_tab	*free_tab(t_tab *a)
 {
@@ -72,4 +72,11 @@ int	biggest_index(t_tab *a)
 		current = current->next;
 	}
 	return (biggest);
+}
+
+int	first_index(t_tab *a)
+{
+	if (!a)
+		return (0);
+	return (a->index);
 }

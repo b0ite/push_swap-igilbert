@@ -4,11 +4,16 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	parsing.c \
-		utils_1.c \
-		utils_2.c \
-		inst_1.c \
-		inst_2.c \
-		algo.c
+		./utils/utils_1.c \
+		./utils/utils_2.c \
+		./utils/utils_3.c \
+		./utils/utils_4.c \
+		./inst/inst_1.c \
+		./inst/inst_2.c \
+		./inst/inst_3.c \
+		./algo/algo.c \
+		./algo/algo_2.c \
+		main.c
 
 OBJS = $(SRCS:.c=.o)
 

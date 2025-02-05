@@ -6,11 +6,11 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:12:38 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/04 11:34:23 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:03:45 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sa(t_tab *a)
 {

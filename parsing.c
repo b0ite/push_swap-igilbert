@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:01:44 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/05 11:50:02 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:26:08 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,12 @@ void	index_tab(t_tab *a)
 	}
 }
 
-t_tab	*fill_a(char **av)
+t_tab	*one_arv(t_tab *a, char **av)
 {
-	t_tab	*a;
-	int		i;
 	char	**split;
+	int		i;
 
 	i = 0;
-	a = NULL;
 	split = ft_split(av[1], ' ');
 	while (split[i])
 	{
@@ -75,6 +73,31 @@ t_tab	*fill_a(char **av)
 	}
 	index_tab(a);
 	free_split(split);
+	return (a);
+}
+
+t_tab	*fill_a(char **av)
+{
+	t_tab	*a;
+	int		i;
+
+	i = 0;
+	a = NULL;
+	if (ft_strchr(av[1], ' '))
+		a = one_arv(a, av);
+	else
+	{
+		while (av[i + 1])
+		{
+			if (!ft_atoi(av[i + 1]) && av[i + 1][0] != '0')
+			{
+				ft_printf("Error : %s not an integer\n", av[i + 1]);
+				return (free_tab(a));
+			}
+			a = add_back(a, ft_atoi(av[i + 1]));
+			i++;
+		}
+	}
 	if (!full_check(a))
 		return (free_tab(a));
 	return (a);

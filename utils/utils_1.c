@@ -6,11 +6,12 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:14:12 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/05 13:03:57 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:24:15 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <limits.h>
 
 void	print_tab(t_tab *a)
 {
@@ -27,13 +28,15 @@ void	print_tab(t_tab *a)
 int	check_numbers(t_tab *a)
 {
 	t_tab	*current;
+	long	value;
 
 	current = a;
 	while (current)
 	{
-		if (current->value > 2147483647 || current->value < -2147483648)
+		value = (long)current->value;
+		if (value > INT_MAX || value < INT_MIN)
 		{
-			ft_printf("Error : %d not an integer\n", current->value);
+			ft_printf("Error : %ld not an integer\n", value);
 			return (0);
 		}
 		current = current->next;

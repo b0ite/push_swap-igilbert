@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:01:44 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/05 13:26:08 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/18 00:54:18 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_tab	*one_arv(t_tab *a, char **av)
 	{
 		if (!ft_atoi(split[i]))
 		{
-			ft_printf("Error : %s not an integer\n", split[i]);
+			ft_putstr_fd("Error\n", 2);
 			free_split(split);
 			return (NULL);
 		}
@@ -91,7 +91,7 @@ t_tab	*fill_a(char **av)
 		{
 			if (!ft_atoi(av[i + 1]) && av[i + 1][0] != '0')
 			{
-				ft_printf("Error : %s not an integer\n", av[i + 1]);
+				ft_putstr_fd("Error\n", 2);
 				return (free_tab(a));
 			}
 			a = add_back(a, ft_atoi(av[i + 1]));

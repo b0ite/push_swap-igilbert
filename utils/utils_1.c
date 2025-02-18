@@ -6,7 +6,7 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:14:12 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/05 13:24:15 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/18 00:56:13 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_numbers(t_tab *a)
 		value = (long)current->value;
 		if (value > INT_MAX || value < INT_MIN)
 		{
-			ft_printf("Error : %ld not an integer\n", value);
+			ft_putstr_fd("Error\n", 2);
 			return (0);
 		}
 		current = current->next;
@@ -57,7 +57,7 @@ int	check_double(t_tab *a)
 		{
 			if (current->value == compare->value)
 			{
-				ft_printf("Error : %d twice\n", current->value);
+				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}
 			compare = compare->next;
